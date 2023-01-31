@@ -4,17 +4,28 @@ import Swal from 'sweetalert2';
 function Edit({ employees, selectedEmployee, setEmployees, setIsEditing }) {
 
     const id = selectedEmployee.id;
-
-    const [firstName, setFirstName] = useState(selectedEmployee.firstName);
-    const [lastName, setLastName] = useState(selectedEmployee.lastName);
-    const [email, setEmail] = useState(selectedEmployee.email);
-    const [salary, setSalary] = useState(selectedEmployee.salary);
-    const [date, setDate] = useState(selectedEmployee.date);
+    const [firstName, setfirstName] = useState(selectedEmployee.firstName);
+    const [lastName, setlastName] = useState(selectedEmployee.lastName);
+    const [Organization, setOrganization] = useState(selectedEmployee.Organization);
+    const [MobileNo, setMobileNo] = useState(selectedEmployee.MobileNo);
+    const [Address_Line1, setrAddress_Line1] = useState(selectedEmployee.Address_Line1);
+    const [Address_Line2, setAddress_Line2] = useState(selectedEmployee.Address_Line2);
+    const [Street, setStreet] = useState(selectedEmployee.Street);
+    const [City, setCity] = useState(selectedEmployee.City);
+    const [State, setState] = useState(selectedEmployee.State);
+    const [Country, setCountry] = useState(selectedEmployee.Country);
 
     const handleUpdate = e => {
         e.preventDefault();
 
-        if (!firstName || !lastName || !email || !salary || !date) {
+        if (!firstName ||
+            !lastName ||
+            !MobileNo ||
+            !Address_Line1 ||
+            !Street ||
+            !City ||
+            !State ||
+            !Country) {
             return Swal.fire({
                 icon: 'error',
                 title: 'Error!',
@@ -27,9 +38,13 @@ function Edit({ employees, selectedEmployee, setEmployees, setIsEditing }) {
             id,
             firstName,
             lastName,
-            email,
-            salary,
-            date
+            MobileNo,
+            Address_Line1,
+            Address_Line2,
+            Street,
+            City,
+            State,
+            Country,
         };
 
         for (let i = 0; i < employees.length; i++) {
@@ -61,7 +76,7 @@ function Edit({ employees, selectedEmployee, setEmployees, setIsEditing }) {
                     type="text"
                     name="firstName"
                     value={firstName}
-                    onChange={e => setFirstName(e.target.value)}
+                    onChange={(e) => setfirstName(e.target.value)}
                 />
                 <label htmlFor="lastName">Last Name</label>
                 <input
@@ -69,31 +84,72 @@ function Edit({ employees, selectedEmployee, setEmployees, setIsEditing }) {
                     type="text"
                     name="lastName"
                     value={lastName}
-                    onChange={e => setLastName(e.target.value)}
+                    onChange={(e) => setlastName(e.target.value)}
                 />
-                <label htmlFor="email">Email</label>
+
+                <label htmlFor="State">Organization</label>
                 <input
-                    id="email"
-                    type="email"
-                    name="email"
-                    value={email}
-                    onChange={e => setEmail(e.target.value)}
+                    id="organization"
+                    type="text"
+                    name="organization"
+                    value={Organization}
+                    onChange={(e) => setOrganization(e.target.value)}
                 />
-                <label htmlFor="salary">Salary ($)</label>
+                <label htmlFor="mobile">Mobile No</label>
                 <input
-                    id="salary"
+                    id="mobile"
                     type="number"
-                    name="salary"
-                    value={salary}
-                    onChange={e => setSalary(e.target.value)}
+                    name="mobile"
+                    value={MobileNo}
+                    onChange={(e) => setMobileNo(e.target.value)}
                 />
-                <label htmlFor="date">Date</label>
+                <label htmlFor="Address_Line2">Address </label>
                 <input
-                    id="date"
-                    type="date"
-                    name="date"
-                    value={date}
-                    onChange={e => setDate(e.target.value)}
+                    id="Address_Line1"
+                    type="text"
+                    name="Address_Line1"
+                    value={Address_Line1}
+                    onChange={(e) => setrAddress_Line1(e.target.value)}
+                />
+                <label htmlFor="Address_Line2">Address 2 </label>
+                <input
+                    id="address_line2"
+                    type="text"
+                    name="address_line2"
+                    value={Address_Line2}
+                    onChange={(e) => setAddress_Line2(e.target.value)}
+                />
+                <label htmlFor="street">Street</label>
+                <input
+                    id="Street"
+                    type="text"
+                    name="Street"
+                    value={Street}
+                    onChange={(e) => setStreet(e.target.value)}
+                />
+                <label htmlFor="city">City</label>
+                <input
+                    id="city"
+                    type="text"
+                    name="city"
+                    value={City}
+                    onChange={(e) => setCity(e.target.value)}
+                />
+                <label htmlFor="State">State</label>
+                <input
+                    id="state"
+                    type="text"
+                    name="state"
+                    value={State}
+                    onChange={(e) => setState(e.target.value)}
+                />
+                <label htmlFor="country">Country</label>
+                <input
+                    id="country"
+                    type="text"
+                    name="country"
+                    value={Country}
+                    onChange={(e) => setCountry(e.target.value)}
                 />
                 <div style={{ marginTop: '30px' }}>
                     <input type="submit" value="Update" />

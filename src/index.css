@@ -792,10 +792,10 @@ button,
 [type='button'] {
   -webkit-appearance: none;
   display: inline-block;
-  border: 1px solid #0366ee;
+  border: 1px solid #000000;
   border-radius: 4px;
-  background: #0366ee;
-  color: #ffffff;
+  background: #f5f9ff;
+  color: #0e0b0b;
   font-weight: 600;
   font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica,
     Arial, sans-serif;
@@ -816,8 +816,8 @@ button:hover,
 [type='submit']:hover,
 [type='reset']:hover,
 [type='button']:hover {
-  border: 1px solid #0250bc;
-  background: #0250bc;
+  border: 1px solid #545c68;
+  background: #11151b;
   color: #ffffff;
   text-decoration: none;
 }

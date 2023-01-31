@@ -16,10 +16,10 @@ function List({ employees, handleEdit, handleDelete }) {
             <th>First Name</th>
             <th>Last Name</th>
             <th>Mobile</th>
-            <th>Address</th>
             <th>City</th>
             <th>Country</th>
             <th>State</th>
+            <th>Address</th>
             {/* <th>Street</th> */}
             <th colSpan={2} className="text-center">
               Actions
@@ -33,7 +33,7 @@ function List({ employees, handleEdit, handleDelete }) {
                 <td>{i + 1}</td>
                 <td>{employee.firstName}</td>
                 <td>{employee.lastName}</td>
-                <td>{employee.mobile}</td>
+                <td>{employee.MobileNo}</td>
                 <td>{employee.City}</td>
                 <td>{employee.Country}</td>
                 <td>{employee.State}</td>
