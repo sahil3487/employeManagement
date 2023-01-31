@@ -1,11 +1,11 @@
 import React from "react";
 
 function List({ employees, handleEdit, handleDelete }) {
-  //   const formatter = new Intl.NumberFormat("en-US", {
-  //     style: "currency",
-  //     currency: "USD",
-  //     minimumFractionDigits: null,
-  //   });
+  const formatter = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+    minimumFractionDigits: null,
+  });
 
   return (
     <div className="contain-table">
@@ -16,13 +16,15 @@ function List({ employees, handleEdit, handleDelete }) {
             <th>First Name</th>
             <th>Last Name</th>
             <th>Mobile</th>
+            <th>Organization</th>
+            <th>Street</th>
             <th>City</th>
-            <th>Country</th>
             <th>State</th>
+            <th>Country</th>
             <th>Address</th>
-            {/* <th>Street</th> */}
-            <th colSpan={2} className="text-center">
-              Actions
+            <th>Salary</th>
+            <th colSpan={3} className="text-center">
+                Actions
             </th>
           </tr>
         </thead>
@@ -34,11 +36,15 @@ function List({ employees, handleEdit, handleDelete }) {
                 <td>{employee.firstName}</td>
                 <td>{employee.lastName}</td>
                 <td>{employee.MobileNo}</td>
+                <td>{employee.Organization}</td>
+                <td>{employee.Street}</td>
                 <td>{employee.City}</td>
-                <td>{employee.Country}</td>
                 <td>{employee.State}</td>
-                {/* <td>{formatter.format(employee.salary)}</td> */}
-                <td>{employee.Street} </td>
+                <td>{employee.Country}</td>
+                <td>{employee.Country}</td>
+                <td>{formatter.format(employee.Salary)}</td>
+
+                <td>{employee.address} </td>
                 <td className="text-right">
                   <button
                     onClick={() => handleEdit(employee.id)}

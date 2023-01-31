@@ -10,10 +10,11 @@ function Edit({ employees, selectedEmployee, setEmployees, setIsEditing }) {
     const [MobileNo, setMobileNo] = useState(selectedEmployee.MobileNo);
     const [Address_Line1, setrAddress_Line1] = useState(selectedEmployee.Address_Line1);
     const [Address_Line2, setAddress_Line2] = useState(selectedEmployee.Address_Line2);
-    const [Street, setStreet] = useState(selectedEmployee.Street);
+    const [Salary, setSalary] = useState(selectedEmployee.Salary);
     const [City, setCity] = useState(selectedEmployee.City);
     const [State, setState] = useState(selectedEmployee.State);
     const [Country, setCountry] = useState(selectedEmployee.Country);
+    const [Street, setStreet] = useState(selectedEmployee.Street);
 
     const handleUpdate = e => {
         e.preventDefault();
@@ -22,10 +23,10 @@ function Edit({ employees, selectedEmployee, setEmployees, setIsEditing }) {
             !lastName ||
             !MobileNo ||
             !Address_Line1 ||
-            !Street ||
+            !Salary ||
             !City ||
             !State ||
-            !Country) {
+            !Country||!Street) {
             return Swal.fire({
                 icon: 'error',
                 title: 'Error!',
@@ -41,10 +42,12 @@ function Edit({ employees, selectedEmployee, setEmployees, setIsEditing }) {
             MobileNo,
             Address_Line1,
             Address_Line2,
-            Street,
+            Salary,
             City,
             State,
             Country,
+            Street,
+            
         };
 
         for (let i = 0; i < employees.length; i++) {
@@ -119,13 +122,13 @@ function Edit({ employees, selectedEmployee, setEmployees, setIsEditing }) {
                     value={Address_Line2}
                     onChange={(e) => setAddress_Line2(e.target.value)}
                 />
-                <label htmlFor="street">Street</label>
+                <label htmlFor="Salary">Salary</label>
                 <input
-                    id="Street"
+                    id="Salary"
                     type="text"
-                    name="Street"
-                    value={Street}
-                    onChange={(e) => setStreet(e.target.value)}
+                    name="Salary"
+                    value={Salary}
+                    onChange={(e) => setSalary(e.target.value)}
                 />
                 <label htmlFor="city">City</label>
                 <input
@@ -150,6 +153,15 @@ function Edit({ employees, selectedEmployee, setEmployees, setIsEditing }) {
                     name="country"
                     value={Country}
                     onChange={(e) => setCountry(e.target.value)}
+                />
+                <label htmlFor="Street">Street</label>
+                <input
+                    id="Street"
+                    type="text"
+                    name="Street"
+                    value={Street}
+                    onChange={(e) => setStreet(e.target.value)}
+
                 />
                 <div style={{ marginTop: '30px' }}>
                     <input type="submit" value="Update" />

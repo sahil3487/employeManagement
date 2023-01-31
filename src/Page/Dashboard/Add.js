@@ -8,10 +8,11 @@ function Add({ employees, setEmployees, setIsAdding }) {
   const [MobileNo, setMobileNo] = useState("");
   const [Address_Line1, setrAddress_Line1] = useState("");
   const [Address_Line2, setAddress_Line2] = useState("");
-  const [Street, setStreet] = useState("");
+  const [Salary, setSalary] = useState("");
   const [City, setCity] = useState("");
   const [State, setState] = useState("");
   const [Country, setCountry] = useState("");
+  const [Street, setStreet] = useState("");
 
   const textInput = useRef(null);
 
@@ -26,10 +27,10 @@ function Add({ employees, setEmployees, setIsAdding }) {
       !lastName ||
       !MobileNo ||
       !Address_Line1 ||
-      !Street ||
+      !Salary ||
       !City ||
       !State ||
-      !Country
+      !Country || !Street
     ) {
       return Swal.fire({
         icon: "error",
@@ -47,10 +48,11 @@ function Add({ employees, setEmployees, setIsAdding }) {
       MobileNo,
       Address_Line1,
       Address_Line2,
-      Street,
+      Salary,
       City,
       State,
       Country,
+      Street,
     };
     employees.push(newEmployee);
     setEmployees(employees);
@@ -119,13 +121,13 @@ function Add({ employees, setEmployees, setIsAdding }) {
           value={Address_Line2}
           onChange={(e) => setAddress_Line2(e.target.value)}
         />
-        <label htmlFor="street">Street</label>
+        <label htmlFor="Salary">Salary</label>
         <input
-          id="Street"
+          id="Salary"
           type="text"
-          name="Street"
-          value={Street}
-          onChange={(e) => setStreet(e.target.value)}
+          name="Salary"
+          value={Salary}
+          onChange={(e) => setSalary(e.target.value)}
         />
         <label htmlFor="city">City</label>
         <input
@@ -150,7 +152,18 @@ function Add({ employees, setEmployees, setIsAdding }) {
           name="country"
           value={Country}
           onChange={(e) => setCountry(e.target.value)}
+          
         />
+          <label htmlFor="Street">Street</label>
+        <input
+          id="Street"
+          type="text"
+          name="Street"
+          value={Street}
+          onChange={(e) => setStreet(e.target.value)}
+          
+        />
+        
         <div style={{ marginTop: "30px" }}>
           <input type="submit" value="Add" />
           <input

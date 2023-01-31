@@ -8,8 +8,8 @@ function Header({ setIsAdding }) {
                 <h1>Employee Management Software</h1>
             </div>
             
-            <div style={{ marginTop: '30px', marginBottom: '18px'}}>
-                <button onClick={() => setIsAdding(true)} className='round-button'> New Employee</button>
+            <div>
+                <button onClick={() => setIsAdding(true)}>Add Employee</button>
             </div>
         </header>
     )
